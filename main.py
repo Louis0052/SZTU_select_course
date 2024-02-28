@@ -33,15 +33,12 @@ def login():
     sleep(1.5)
     xk_button1 = is_exist(driver, '//*[@id="dataList"]/tbody/tr[1]/td/a')
     xk_button1.click()
-    # driver.find_element(By.XPATH, '//*[@id="dataList"]/tbody/tr[1]/td/a').click()
     sleep(0.5)
     xk_button2 = is_exist(driver, '//*[@id="attend_class"]/tbody/tr[2]/td[4]/a')
     xk_button2.click()
-    # driver.find_element(By.XPATH, '//*[@id="attend_class"]/tbody/tr[2]/td[4]/a').click()
     sleep(0.5)
     xk_button3 = is_exist(driver, '/html/body/form/div/div/input[2]')
     xk_button3.click()
-    # driver.find_element(By.XPATH, '/html/body/form/div/div/input[2]').click()
     sleep(0.5)
     match course_type:  # 选课类型
         case '1':
@@ -73,7 +70,7 @@ def select_course(driver):
             print(strftime('%Y-%m-%d %H:%M:%S', localtime()), select_status)
             driver.quit()
             return
-        elif '已选择' in select_status or '冲突' in select_status:
+        elif '已选择' in select_status or '冲突' in select_status or '不在选课时间范围' in select_status:
             print(select_status)
             driver.quit()
             return
