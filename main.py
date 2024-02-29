@@ -70,11 +70,11 @@ def select_course(driver):
             print(strftime('%Y-%m-%d %H:%M:%S', localtime()), select_status)
             driver.quit()
             return
-        elif '已选择' in select_status or '冲突' in select_status or '不在选课时间范围' in select_status:
+        elif '已选择' in select_status or '冲突' in select_status:
             print(select_status)
             driver.quit()
             return
-        else:
+        else:  # 为了能够第一时间抢课，即使不在选课时间范围时程序也将持续运行
             print(select_status)
             try_time += 1
             sleep(gap_time)
