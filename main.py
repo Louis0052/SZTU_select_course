@@ -12,7 +12,8 @@ def is_exist(driver, xpath):  # 检查xpath路径是否存在，避免网页加�
             return ele
         except NoSuchElementException:
             print("Element not found. Keep trying again.")
-            sleep(0.5)
+            sleep(1)
+            driver.refresh()  # 刷新页面，重新加载元素
 
 
 def login():
